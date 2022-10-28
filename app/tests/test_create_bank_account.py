@@ -2,7 +2,6 @@ import unittest
 
 from ..Konto import Konto
 
-
 class TestCreateBankAccount(unittest.TestCase):
 
     def test_tworzenie_konta(self):
@@ -41,3 +40,6 @@ class TestCreateBankAccount(unittest.TestCase):
                                "59252807357", "PROM_3742")
         self.assertEqual(pierwsze_konto.saldo, 0,
                          "nie prawidłowy kod")
+
+
+
