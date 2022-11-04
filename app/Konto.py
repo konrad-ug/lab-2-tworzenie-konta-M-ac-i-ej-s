@@ -2,12 +2,12 @@ from datetime import date
 
 
 class Konto:
-    def __init__(self, imie, nazwisko, pesel,saldo=0, kod_promocyjny=None):
+    def __init__(self, imie, nazwisko, pesel, kod_promocyjny=None):
         self.imie = imie
         self.nazwisko = nazwisko
         self.pesel = pesel
         self.kod_promocyjny = kod_promocyjny
-        self.saldo = saldo
+        self.saldo = 0
 
         def peselToYear(pesel):
             if(pesel[0] == str(0)):
@@ -30,7 +30,7 @@ class Konto:
     def transferTo(self,amount,express):
         if(amount < self.saldo):
             if(express == True):
-                self.saldo-=amount-1
+                self.saldo-=amount+1
             else:
                 self.saldo-=amount        
 
