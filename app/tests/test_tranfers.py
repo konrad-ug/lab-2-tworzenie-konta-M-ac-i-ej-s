@@ -1,9 +1,6 @@
 import unittest
-
 from ..Konto_firmowe import KontoFirmowe
-
 from ..Konto import Konto
-
 
 class TestCheckBankTransfer(unittest.TestCase):
 
