@@ -1,6 +1,6 @@
 import unittest
 
-from ..Konto import Konto
+from app.Konto import Konto
 
 
 class TestCreateBankAccount(unittest.TestCase):
@@ -26,7 +26,7 @@ class TestCreateBankAccount(unittest.TestCase):
 
     def test_promo_code_for_under_60(self):
         pierwsze_konto = Konto("Dariusz", "Januszewski",
-                               "02252807357", 0, "PROM_374")
+                               "02252807357", "PROM_374")
         self.assertEqual(pierwsze_konto.saldo, 50,
                          "Kod promocyjny aktywowany!")
 
