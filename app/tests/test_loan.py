@@ -1,5 +1,6 @@
 import unittest
 from ..Konto import Konto
+import parameterized
 
 class TestLoan(unittest.TestCase):
 
