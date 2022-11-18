@@ -46,6 +46,7 @@ class Konto:
             if(all(i > 0 for i in self.historia[0:3]) and sum(self.historia[0:5])>amout):
                 self.saldo += amout
                 return True
+            return False    
         else: 
             return False    
 
