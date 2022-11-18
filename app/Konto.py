@@ -40,4 +40,5 @@ class Konto:
     def transferFrom(self, amount):
         self.saldo += amount
         self.historia.insert(0, amount)
-# ss
+  
+
