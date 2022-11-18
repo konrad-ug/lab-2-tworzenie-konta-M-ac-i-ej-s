@@ -40,5 +40,15 @@ class Konto:
     def transferFrom(self, amount):
         self.saldo += amount
         self.historia.insert(0, amount)
+
+    def takeLoan(self, amout):
+        if(len(self.historia) >= 5):
+            if(all(i > 0 for i in self.historia[0:3]) and sum(self.historia[0:5])>amout):
+                self.saldo += amout
+                return True
+        else: 
+            return False    
+
+
   
 
