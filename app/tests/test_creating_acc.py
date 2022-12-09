@@ -1,6 +1,6 @@
 import unittest
 
-from app.Rejerstr_kont import RejestrKont
+from app.Rejestr_kont import RejestrKont
 from app.Konto import Konto
 
 

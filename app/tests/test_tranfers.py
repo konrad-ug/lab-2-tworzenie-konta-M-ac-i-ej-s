@@ -1,6 +1,8 @@
 import unittest
 from ..Konto_firmowe import KontoFirmowe
 from ..Konto import Konto
+from unittest.mock import patch
+
 
 
 class TestCheckBankTransfer(unittest.TestCase):
@@ -46,25 +48,33 @@ class TestCheckBankTransfer(unittest.TestCase):
         konto.transferTo(1499, True)
         self.assertEqual(konto.saldo, 1499-1500, "niepoprawna kwota")
 
-    def test_first_transfer_to(self):
+    @patch('app.Konto_firmowe.KontoFirmowe.is_nip_real')    
+    def test_first_transfer_to(self, mock_is_nip_real):
+        mock_is_nip_real.return_value = True
         konto = KontoFirmowe("Ada", "0225280735")
         konto.saldo = 2000
         konto.transferTo(500)
         self.assertEqual(konto.saldo, 2000-500, "niepoprawna kwota")
 
-    def test_first_transfer_from(self):
+    @patch('app.Konto_firmowe.KontoFirmowe.is_nip_real')    
+    def test_first_transfer_from(self, mock_is_nip_real):
+        mock_is_nip_real.return_value = True
         konto = KontoFirmowe("Ada", "0225280735")
         konto.saldo = 2000
         konto.transferFrom(500)
         self.assertEqual(konto.saldo, 2000+500, "niepoprawna kwota")
 
-    def test_wrong_amont_transfer(self):
+    @patch('app.Konto_firmowe.KontoFirmowe.is_nip_real')
+    def test_wrong_amont_transfer(self, mock_is_nip_real):
+        mock_is_nip_real.return_value = True
         konto = KontoFirmowe("Ada", "0225280735")
         konto.saldo = 0
         konto.transferTo(500)
         self.assertEqual(konto.saldo, 0, "Przelew sie wykonal")
 
-    def test_set_of_transfers(self):
+    @patch('app.Konto_firmowe.KontoFirmowe.is_nip_real')
+    def test_set_of_transfers(self, mock_is_nip_real):
+        mock_is_nip_real.return_value = True
         konto = KontoFirmowe("Ada", "0225280735")
         konto.saldo = 2000
         konto.transferTo(500)
@@ -74,7 +84,9 @@ class TestCheckBankTransfer(unittest.TestCase):
         self.assertEqual(konto.saldo, 2000-500+1000 -
                          1000+2000, "Przelew sie wykonal")
 
-    def test_express_tranfer(self):
+    @patch('app.Konto_firmowe.KontoFirmowe.is_nip_real')
+    def test_express_tranfer(self, mock_is_nip_real):
+        mock_is_nip_real.return_value = True
         konto = KontoFirmowe("Ada", "0225280735")
         konto.saldo = 2000
         konto.transferTo(500, True)
